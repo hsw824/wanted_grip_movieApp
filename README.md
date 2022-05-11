@@ -8,6 +8,8 @@
 2. Recoil 사용하기
 
 구조 설정
+
+```bash
 📦src
 ┣ 📂assets
 ┃ ┗ 📂svgs
@@ -54,6 +56,7 @@
 ┣ 📜react-app-env.d.ts
 ┣ 📜reportWebVitals.ts
 ┗ 📜setupTests.ts
+```
 
 기능 요약
 
