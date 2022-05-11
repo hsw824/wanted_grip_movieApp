@@ -1,17 +1,36 @@
-@use '/src/styles/constants/colors';
-@use '/src/styles/constants/levels';
-@use '/src/styles/mixins/flexbox';
-@use '/src/styles/mixins/position';
+@use "/src/styles/constants/colors";
+@use "/src/styles/constants/levels";
+@use "/src/styles/mixins/flexbox";
+@use "/src/styles/mixins/position";
 
 .search {
   position: relative;
   width: 360px;
   height: 720px;
   padding: 40px;
-  background-color: #fafbfe;
+  background-color: #171723;
   border-radius: 60px;
 
   form {
-    margin-top: 20px;
+    margin: 20px 0;
+    border-radius: 14px;
+    background-color: #2b2b38;
+    padding: 20px;
+    input {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.02rem;
+    }
+    button {
+      color: #ffffff;
+    }
+  }
+  h1 {
+    font-size: 24px;
+    text-align: center;
+    color: #ffffff;
+
+    margin-top: 150px;
   }
 }

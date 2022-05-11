@@ -1,0 +1,57 @@
+.movieList {
+  ul {
+    .movieCard {
+      display: flex;
+      width: 280px;
+      height: 120px;
+      background-color: #272936;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      position: relative;
+      &::after {
+        content: "";
+        width: 40px;
+        height: 30px;
+        background-color: #171723;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 88%;
+        left: 40%;
+      }
+      &::before {
+        content: "";
+        width: 40px;
+        height: 30px;
+        background-color: #171723;
+        border-radius: 50%;
+        position: absolute;
+        top: 88%;
+        left: 40%;
+      }
+      .poster img {
+        width: 70px;
+        height: 100px;
+        border-radius: 10px;
+        margin: 10px;
+      }
+      .title {
+        color: #fff;
+        position: absolute;
+        top: 25%;
+        left: 33%;
+      }
+      .year {
+        color: #fff;
+        position: absolute;
+        top: 40%;
+        left: 33%;
+      }
+      .type {
+        color: #fff;
+        position: absolute;
+        top: 55%;
+        left: 33%;
+      }
+    }
+  }
+}
