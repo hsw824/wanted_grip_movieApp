@@ -10,52 +10,52 @@
 구조 설정
 
 ```bash
-📦src
-┣ 📂assets
-┃ ┗ 📂svgs
-┃ ┃ ┣ 📜check.svg
-┃ ┃ ┣ 📜index.js
-┃ ┃ ┗ 📜logo.svg
-┣ 📂hooks
-┃ ┣ 📂worker
-┃ ┃ ┣ 📜index.tsx
-┃ ┃ ┣ 📜useAxios.tsx
-┃ ┃ ┗ 📜useAxiosCore.tsx
-┃ ┗ 📜index.tsx
-┣ 📂routes
-┃ ┣ 📂Search
-┃ ┃ ┣ 📂MovieList
-┃ ┃ ┃ ┗ 📜index.tsx
-┃ ┃ ┣ 📜Search.module.scss
-┃ ┃ ┗ 📜index.tsx
-┃ ┣ 📜Routes.module.scss
-┃ ┗ 📜index.jsx
-┣ 📂styles
-┃ ┣ 📂base
-┃ ┃ ┣ 📜_fonts.scss
-┃ ┃ ┣ 📜_more.scss
-┃ ┃ ┗ 📜_reset.scss
-┃ ┣ 📂constants
-┃ ┃ ┣ 📜_colors.scss
-┃ ┃ ┣ 📜_levels.scss
-┃ ┃ ┗ 📜_sizes.scss
-┃ ┣ 📂mixins
-┃ ┃ ┣ 📜_animation.scss
-┃ ┃ ┣ 📜_flexbox.scss
-┃ ┃ ┣ 📜_position.scss
-┃ ┃ ┣ 📜_responsive.scss
-┃ ┃ ┗ 📜_visual.scss
-┃ ┣ 📜index.js
-┃ ┗ 📜index.scss
-┣ 📂types
-┃ ┗ 📜ProductList.tsx
-┣ 📂utils
-┃ ┗ 📜axios.ts
-┣ 📜index.tsx
-┣ 📜logo.svg
-┣ 📜react-app-env.d.ts
-┣ 📜reportWebVitals.ts
-┗ 📜setupTests.ts
+src
+┣ assets
+┃ ┗ svgs
+┃ ┃ ┣ check.svg
+┃ ┃ ┣ index.js
+┃ ┃ ┗ logo.svg
+┣ hooks
+┃ ┣ worker
+┃ ┃ ┣ index.tsx
+┃ ┃ ┣ useAxios.tsx
+┃ ┃ ┗ useAxiosCore.tsx
+┃ ┗ index.tsx
+┣ routes
+┃ ┣ Search
+┃ ┃ ┣ MovieList
+┃ ┃ ┃ ┗ index.tsx
+┃ ┃ ┣ Search.module.scss
+┃ ┃ ┗ index.tsx
+┃ ┣ Routes.module.scss
+┃ ┗ index.jsx
+┣ styles
+┃ ┣ base
+┃ ┃ ┣ _fonts.scss
+┃ ┃ ┣ _more.scss
+┃ ┃ ┗ _reset.scss
+┃ ┣ constants
+┃ ┃ ┣ _colors.scss
+┃ ┃ ┣ _levels.scss
+┃ ┃ ┗ _sizes.scss
+┃ ┣ mixins
+┃ ┃ ┣ _animation.scss
+┃ ┃ ┣ _flexbox.scss
+┃ ┃ ┣ _position.scss
+┃ ┃ ┣ _responsive.scss
+┃ ┃ ┗ _visual.scss
+┃ ┣ index.js
+┃ ┗ index.scss
+┣ types
+┃ ┗ ProductList.tsx
+┣ utils
+┃ ┗ axios.ts
+┣ index.tsx
+┣ logo.svg
+┣ react-app-env.d.ts
+┣ reportWebVitals.ts
+┗ setupTests.ts
 ```
 
 기능 요약
