@@ -62,6 +62,9 @@ src
  ┗ setupTests.ts
 ```
 
+![app구동](https://user-images.githubusercontent.com/79175916/168455274-69781bf9-e50c-4f2a-93fd-ddeabaa6f791.gif)
+
+
 기능 요약
 - 두개의 하단 탭바(검색/즐겨찾기)
 
