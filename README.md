@@ -1,66 +1,68 @@
 # wanted_grip_movieApp
-
 원티드 프리온보딩 프론트엔드 그립 기업 개인 과제 입니다.
-
-필수조건
-
-1. 타입스크립트로 작성하기
-2. Recoil 사용하기
 
 구조 설정
 
 ```bash
 src
-┣ assets
-┃ ┗ svgs
-┃ ┃ ┣ check.svg
-┃ ┃ ┣ index.js
-┃ ┃ ┗ logo.svg
-┣ hooks
-┃ ┣ worker
-┃ ┃ ┣ index.tsx
-┃ ┃ ┣ useAxios.tsx
-┃ ┃ ┗ useAxiosCore.tsx
-┃ ┗ index.tsx
-┣ routes
-┃ ┣ Search
-┃ ┃ ┣ MovieList
-┃ ┃ ┃ ┗ index.tsx
-┃ ┃ ┣ Search.module.scss
-┃ ┃ ┗ index.tsx
-┃ ┣ Routes.module.scss
-┃ ┗ index.jsx
-┣ styles
-┃ ┣ base
-┃ ┃ ┣ _fonts.scss
-┃ ┃ ┣ _more.scss
-┃ ┃ ┗ _reset.scss
-┃ ┣ constants
-┃ ┃ ┣ _colors.scss
-┃ ┃ ┣ _levels.scss
-┃ ┃ ┗ _sizes.scss
-┃ ┣ mixins
-┃ ┃ ┣ _animation.scss
-┃ ┃ ┣ _flexbox.scss
-┃ ┃ ┣ _position.scss
-┃ ┃ ┣ _responsive.scss
-┃ ┃ ┗ _visual.scss
-┃ ┣ index.js
-┃ ┗ index.scss
-┣ types
-┃ ┗ ProductList.tsx
-┣ utils
-┃ ┗ axios.ts
-┣ index.tsx
-┣ logo.svg
-┣ react-app-env.d.ts
-┣ reportWebVitals.ts
-┗ setupTests.ts
+ ┣ assets
+ ┃ ┣ svgs
+ ┃ ┃ ┣ check.svg
+ ┃ ┃ ┣ index.js
+ ┃ ┃ ┗ logo.svg
+ ┃ ┗ noImage.jpeg
+ ┣ components
+ ┃ ┣ Footer.tsx
+ ┃ ┗ footer.module.scss
+ ┣ hooks
+ ┃ ┣ worker
+ ┃ ┃ ┣ index.tsx
+ ┃ ┃ ┣ useAxios.tsx
+ ┃ ┃ ┗ useAxiosCore.tsx
+ ┃ ┗ index.tsx
+ ┣ routes
+ ┃ ┣ Favorite
+ ┃ ┃ ┣ favorite.module.scss
+ ┃ ┃ ┗ index.tsx
+ ┃ ┣ Search
+ ┃ ┃ ┣ MovieList
+ ┃ ┃ ┃ ┣ index.tsx
+ ┃ ┃ ┃ ┗ movieList.module.scss
+ ┃ ┃ ┣ index.tsx
+ ┃ ┃ ┗ search.module.scss
+ ┃ ┣ .DS_Store
+ ┃ ┣ Routes.module.scss
+ ┃ ┗ index.jsx
+ ┣ styles
+ ┃ ┣ base
+ ┃ ┃ ┣ _fonts.scss
+ ┃ ┃ ┣ _more.scss
+ ┃ ┃ ┗ _reset.scss
+ ┃ ┣ constants
+ ┃ ┃ ┣ _colors.scss
+ ┃ ┃ ┣ _levels.scss
+ ┃ ┃ ┗ _sizes.scss
+ ┃ ┣ mixins
+ ┃ ┃ ┣ _animation.scss
+ ┃ ┃ ┣ _flexbox.scss
+ ┃ ┃ ┣ _position.scss
+ ┃ ┃ ┣ _responsive.scss
+ ┃ ┃ ┗ _visual.scss
+ ┃ ┣ index.js
+ ┃ ┗ index.scss
+ ┣ types
+ ┃ ┗ ProductList.tsx
+ ┣ utils
+ ┃ ┗ axios.ts
+ ┣ .DS_Store
+ ┣ index.tsx
+ ┣ logo.svg
+ ┣ react-app-env.d.ts
+ ┣ reportWebVitals.ts
+ ┗ setupTests.ts
 ```
 
 기능 요약
-
-- 기본 구현
 - 두개의 하단 탭바(검색/즐겨찾기)
 
 - 검색 탭
@@ -90,6 +92,8 @@ src
   즐겨찾기 해제를 누르면 해당 영화는 즐겨찾기 목록에서 즉시 제거함
 
 
-- 수정사항
- - 배경색 linear-gradient() 로 바꿔보기
- - 스타일 조금만 더 예쁘게....
+- 제한점/반성
+ 1. 무한 스크롤 미구현
+ 2. 즐겨찾기탭에서 다시 검색탭으로 갈 때 새로고침 되는 것
+ 3. 드래그 앤 드랍
+ 4. 가장 큰 실수 - yarn/npm을 섞어쓴것
