@@ -4,6 +4,7 @@ import styles from './search.module.scss'
 import axios from 'axios'
 import { ProductProps } from '../../types/ProductList'
 import { MovieList } from './MovieList'
+import Footer from 'components/Footer'
 
 const Search = () => {
   const [value, setValue] = useState<string>('')
@@ -36,6 +37,7 @@ const Search = () => {
         </button>
       </form>
       {loading ? <h1>No search results found</h1> : <MovieList data={data} />}
+      <Footer />
     </div>
   )
 }
