@@ -18,6 +18,7 @@ const MovieList = ({ data }: { data: ProductProps[] }) => {
     setIsActive((prev) => !prev)
     setListId(e.currentTarget.tabIndex)
   }
+
   const handleAddFavorite = () => {
     setFavoriteMovie((prev) => [...prev, data[listId]])
     setIsActive((prev) => !prev)

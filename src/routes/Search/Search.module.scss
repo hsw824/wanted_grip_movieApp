@@ -1,38 +1,36 @@
 @use '/src/styles/constants/colors';
-@use '/src/styles/constants/levels';
-@use '/src/styles/mixins/flexbox';
-@use '/src/styles/mixins/position';
 
 .search {
   position: relative;
   width: 360px;
-  // height: 720px;
+  height: 720px;
   padding: 40px;
+  overflow: scroll;
   background-color: #171723;
   border-radius: 60px;
+}
 
-  form {
-    padding: 20px;
-    margin: 20px 0;
-    background-color: #2b2b38;
-    border-radius: 14px;
+form {
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #2b2b38;
+  border-radius: 14px;
 
-    input {
-      font-size: 16px;
-      font-weight: 600;
-      color: colors.$WHITE;
-      letter-spacing: 0.02rem;
-    }
-
-    button {
-      color: colors.$WHITE;
-    }
-  }
-
-  h1 {
-    margin-top: 150px;
-    font-size: 24px;
+  input {
+    font-size: 16px;
+    font-weight: 600;
     color: colors.$WHITE;
-    text-align: center;
+    letter-spacing: 0.02rem;
   }
+
+  button {
+    color: colors.$WHITE;
+  }
+}
+
+h1 {
+  margin-top: 150px;
+  font-size: 24px;
+  color: colors.$WHITE;
+  text-align: center;
 }
