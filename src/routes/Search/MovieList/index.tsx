@@ -68,7 +68,7 @@ const MovieList = ({ data }: { data: ProductProps[] }) => {
               )}
 
               <button onClick={handleOnClick} type='button'>
-                취소하기
+                취소
               </button>
             </div>
           </div>
