@@ -2,32 +2,35 @@ import { useState, MouseEvent } from 'react'
 import { ProductProps } from '../../../types/ProductList'
 import useLocalStorageState from 'use-local-storage-state'
 import noPoster from '../../../assets/noImage.jpeg'
+import Modal from 'components/Modal'
 
 import styles from './movieList.module.scss'
 
 const MovieList = ({ data }: { data: ProductProps[] }) => {
-  // const [isActive, setIsActive] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const [listId, setListId] = useState(0)
 
   const [favoriteMovie, setFavoriteMovie] = useLocalStorageState<ProductProps[]>('favorite', {
     ssr: true,
     defaultValue: [],
   })
-
+  const toggleIsOpen = () => {
+    setIsOpen((prev) => !prev)
+  }
   const handleOnClick = (event: MouseEvent<HTMLDivElement>) => {
-    // setIsActive((prev) => !prev)
+    toggleIsOpen()
     setListId(event.currentTarget.tabIndex)
   }
 
   const handleAddFavorite = () => {
     setFavoriteMovie((prev) => [data[listId], ...prev])
-    // setIsActive((prev) => !prev)
+    setIsOpen((prev) => !prev)
   }
 
   const handleRemoveFavorite = () => {
     const movieFilter = favoriteMovie.filter((movie) => movie.imdbID !== data[listId].imdbID)
     setFavoriteMovie(() => [...movieFilter])
-    // setIsActive((prev) => !prev)
+    setIsOpen((prev) => !prev)
   }
 
   if (!data) {
@@ -57,23 +60,19 @@ const MovieList = ({ data }: { data: ProductProps[] }) => {
             ) : (
               <p className={styles.sticker}>😗</p>
             )}
-
-            {/* {favoriteMovie.find((movie) => movie.imdbID === item.imdbID) ? (
-              <button onClick={handleRemoveFavorite} type='button'>
-                제거하기
-              </button>
-            ) : (
-              <button onClick={handleAddFavorite} type='button'>
-                즐겨찾기
-              </button>
-            )}
-
-            <button onClick={handleOnClick} type='button'>
-              취소하기
-            </button> */}
           </div>
         </div>
       ))}
+      {isOpen ? (
+        <Modal
+          poster={data[listId].Poster}
+          title={data[listId].Title}
+          imdbID={data[listId].imdbID}
+          toggleIsOpen={toggleIsOpen}
+          handleAddFavorite={handleAddFavorite}
+          handleRemoveFavorite={handleRemoveFavorite}
+        />
+      ) : null}
     </div>
   )
 }
