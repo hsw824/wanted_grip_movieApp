@@ -4,8 +4,8 @@ import styles from './footer.module.scss'
 const Footer = () => {
   return (
     <ul className={styles.menuContainer}>
-      <NavLink to='/'>검색하기</NavLink>
-      <NavLink to='/favorite'>즐겨찾기</NavLink>
+      <NavLink to='/'>Search</NavLink>
+      <NavLink to='/favorite'>Favorite</NavLink>
     </ul>
   )
 }
