@@ -1,33 +1,36 @@
-import { useState } from 'react'
+import { useState, MouseEvent } from 'react'
 import { ProductProps } from '../../../types/ProductList'
-import styles from './movieList.module.scss'
-import classNames from 'classnames'
 import useLocalStorageState from 'use-local-storage-state'
 import noPoster from '../../../assets/noImage.jpeg'
+import Modal from 'components/Modal'
+
+import styles from './movieList.module.scss'
 
 const MovieList = ({ data }: { data: ProductProps[] }) => {
-  const [isActive, setIsActive] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const [listId, setListId] = useState(0)
 
   const [favoriteMovie, setFavoriteMovie] = useLocalStorageState<ProductProps[]>('favorite', {
     ssr: true,
     defaultValue: [],
   })
-
-  const handleOnClick = (e: any) => {
-    setIsActive((prev) => !prev)
-    setListId(e.currentTarget.tabIndex)
+  const toggleIsOpen = () => {
+    setIsOpen((prev) => !prev)
+  }
+  const handleOnClick = (event: MouseEvent<HTMLDivElement>) => {
+    toggleIsOpen()
+    setListId(event.currentTarget.tabIndex)
   }
 
   const handleAddFavorite = () => {
-    setFavoriteMovie((prev) => [...prev, data[listId]])
-    setIsActive((prev) => !prev)
+    setFavoriteMovie((prev) => [data[listId], ...prev])
+    setIsOpen((prev) => !prev)
   }
 
-  const handleRemoveFavorite = (e: any) => {
+  const handleRemoveFavorite = () => {
     const movieFilter = favoriteMovie.filter((movie) => movie.imdbID !== data[listId].imdbID)
     setFavoriteMovie(() => [...movieFilter])
-    setIsActive((prev) => !prev)
+    setIsOpen((prev) => !prev)
   }
 
   if (!data) {
@@ -35,45 +38,41 @@ const MovieList = ({ data }: { data: ProductProps[] }) => {
   }
   return (
     <div className={styles.movieList}>
-      <ul>
-        {data.map((item, index) => (
-          <div key={`movie-key-${item.imdbID}`}>
-            <div
-              className={classNames(styles.movieCard, { [styles.move]: isActive && listId === index })}
-              onClick={handleOnClick}
-              role='button'
-              tabIndex={index}
-            >
-              <li className={styles.poster}>
-                <img src={item.Poster !== 'N/A' ? item.Poster : noPoster} alt='movie poster' />
-              </li>
-              <li className={styles.title}>{item.Title}</li>
-              <li className={styles.year}>{item.Year}</li>
-              <li className={styles.type}>{item.Type}</li>
-              {favoriteMovie.find((movie) => movie.imdbID === item.imdbID) ? (
-                <li className={styles.sticker}>😊</li>
-              ) : (
-                <li className={styles.sticker}>😗</li>
-              )}
-            </div>
-            <div className={classNames(styles.silde, { [styles.active]: isActive && listId === index })}>
-              {favoriteMovie.find((movie) => movie.imdbID === item.imdbID) ? (
-                <button onClick={handleRemoveFavorite} type='button'>
-                  제거하기
-                </button>
-              ) : (
-                <button onClick={handleAddFavorite} type='button'>
-                  즐겨찾기
-                </button>
-              )}
-
-              <button onClick={handleOnClick} type='button'>
-                취소하기
-              </button>
-            </div>
+      {data.map((item, index) => (
+        <div
+          key={`movie-key-${item.imdbID}`}
+          className={styles.movieCard}
+          onClick={handleOnClick}
+          role='button'
+          tabIndex={index}
+        >
+          <div>
+            <img className={styles.poster} src={item.Poster !== 'N/A' ? item.Poster : noPoster} alt='movie poster' />
           </div>
-        ))}
-      </ul>
+          <div className={styles.infoBox}>
+            <p className={styles.title}>{item.Title}</p>
+            <p className={styles.year}>{item.Year}</p>
+            <p className={styles.type}>{item.Type}</p>
+          </div>
+          <div>
+            {favoriteMovie.find((movie) => movie.imdbID === item.imdbID) ? (
+              <p className={styles.sticker}>😊</p>
+            ) : (
+              <p className={styles.sticker}>😗</p>
+            )}
+          </div>
+        </div>
+      ))}
+      {isOpen ? (
+        <Modal
+          poster={data[listId].Poster}
+          title={data[listId].Title}
+          imdbID={data[listId].imdbID}
+          toggleIsOpen={toggleIsOpen}
+          handleAddFavorite={handleAddFavorite}
+          handleRemoveFavorite={handleRemoveFavorite}
+        />
+      ) : null}
     </div>
   )
 }

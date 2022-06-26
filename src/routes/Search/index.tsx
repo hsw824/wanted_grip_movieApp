@@ -1,10 +1,10 @@
-import { useState } from 'react'
-
-import styles from './search.module.scss'
+import { useState, ChangeEvent, MouseEvent } from 'react'
 import axios from 'axios'
 import { ProductProps } from '../../types/ProductList'
 import { MovieList } from './MovieList'
 import Footer from 'components/Footer'
+
+import styles from './search.module.scss'
 
 const Search = () => {
   const [value, setValue] = useState<string>('')
@@ -18,11 +18,11 @@ const Search = () => {
     setData(response.data.Search)
   }
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.currentTarget.value)
   }
 
-  const handleOnSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleOnSubmit = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     fetchData()
     setLoading(false)
